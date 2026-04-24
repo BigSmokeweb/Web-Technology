@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RegisterForm | Input Validation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="bg-glow"></div>
+<div class="wrapper">
+    <div class="form-card">
+        <div class="form-header">
+            <div class="fh-icon">📋</div>
+            <h1>Registration Form</h1>
+            <p>All fields validated using JavaScript — no page refresh</p>
+        </div>
+
+        <form id="regForm" onsubmit="handleSubmit(event)" novalidate>
+            <!-- Name -->
+            <div class="fg" id="fg-name">
+                <label for="fname">Full Name</label>
+                <div class="input-wrap" id="iw-name">
+                    <span class="iicon">👤</span>
+                    <input type="text" id="fname" placeholder="Enter your full name"
+                           oninput="liveValidate('name')" onfocus="focusField('name')" onblur="blurField('name')" />
+                    <span class="status-icon" id="si-name"></span>
+                </div>
+                <span class="err-msg" id="err-name"></span>
+            </div>
+
+            <!-- Email -->
+            <div class="fg" id="fg-email">
+                <label for="femail">Email Address</label>
+                <div class="input-wrap" id="iw-email">
+                    <span class="iicon">📧</span>
+                    <input type="text" id="femail" placeholder="you@example.com"
+                           oninput="liveValidate('email')" onfocus="focusField('email')" onblur="blurField('email')" />
+                    <span class="status-icon" id="si-email"></span>
+                </div>
+                <span class="err-msg" id="err-email"></span>
+            </div>
+
+            <!-- Password -->
+            <div class="fg" id="fg-pass">
+                <label for="fpass">Password</label>
+                <div class="input-wrap" id="iw-pass">
+                    <span class="iicon">🔒</span>
+                    <input type="password" id="fpass" placeholder="Create a strong password"
+                           oninput="liveValidate('pass'); updateStrength()" onfocus="focusField('pass')" onblur="blurField('pass')" />
+                    <button type="button" class="eye" onclick="toggleEye('fpass',this)">👁</button>
+                </div>
+                <div class="strength-wrap">
+                    <div class="strength-bar"><div id="sBar" class="sBar"></div></div>
+                    <span id="sLabel" class="strength-lbl"></span>
+                </div>
+                <span class="err-msg" id="err-pass"></span>
+            </div>
+
+            <!-- Confirm Password -->
+            <div class="fg" id="fg-conf">
+                <label for="fconf">Confirm Password</label>
+                <div class="input-wrap" id="iw-conf">
+                    <span class="iicon">✅</span>
+                    <input type="password" id="fconf" placeholder="Repeat your password"
+                           oninput="liveValidate('conf')" onfocus="focusField('conf')" onblur="blurField('conf')" />
+                    <button type="button" class="eye" onclick="toggleEye('fconf',this)">👁</button>
+                </div>
+                <span class="err-msg" id="err-conf"></span>
+            </div>
+
+            <!-- Terms -->
+            <div class="terms-row">
+                <input type="checkbox" id="terms" onchange="liveValidate('terms')" />
+                <label for="terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+            </div>
+            <span class="err-msg" id="err-terms"></span>
+
+            <!-- Submit -->
+            <div id="formMsg" class="form-msg hidden"></div>
+            <button type="submit" class="submit-btn" id="submitBtn">
+                <span id="btnText">Create Account →</span>
+                <span id="btnLoader" class="btn-loader hidden"></span>
+            </button>
+        </form>
+
+        <p class="sign-in">Already have an account? <a href="#">Sign In</a></p>
+    </div>
+
+    <!-- Validation Summary Box -->
+    <div class="summary-card">
+        <h3>📊 Validation Status</h3>
+        <div class="rule-list">
+            <div class="rule" id="r-name"><span class="r-icon">⬜</span> Name (3+ chars, letters only)</div>
+            <div class="rule" id="r-email"><span class="r-icon">⬜</span> Valid email format</div>
+            <div class="rule" id="r-pass"><span class="r-icon">⬜</span> Password (8+ chars, uppercase, number)</div>
+            <div class="rule" id="r-conf"><span class="r-icon">⬜</span> Passwords match</div>
+            <div class="rule" id="r-terms"><span class="r-icon">⬜</span> Terms accepted</div>
+        </div>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

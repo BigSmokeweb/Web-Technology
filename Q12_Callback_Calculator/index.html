@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CallbackCalc | Array Math with Callbacks</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="bg-grad"></div>
+<div class="app">
+    <header>
+        <div class="hicon">🧮</div>
+        <h1>Callback Calculator</h1>
+        <p>Array processing using reusable JavaScript callback functions</p>
+    </header>
+
+    <!-- Input Array -->
+    <div class="card">
+        <h2>📥 Input Numbers Array</h2>
+        <p class="card-desc">Enter numbers separated by commas</p>
+        <div class="arr-input-row">
+            <input type="text" id="arrayInput" placeholder="e.g. 2, 3, 4, 5, 6" value="2, 3, 4, 5, 6" />
+            <button class="btn-parse" onclick="parseAndRun()">Process →</button>
+        </div>
+        <div id="parsedArr" class="parsed-arr"></div>
+    </div>
+
+    <!-- Operations -->
+    <div class="ops-grid">
+        <div class="op-card" id="op-square">
+            <div class="op-icon">²</div>
+            <div class="op-title">Square</div>
+            <div class="op-desc">n → n × n</div>
+            <div class="op-result" id="res-square"></div>
+            <button class="op-btn" onclick="runOp('square')">Run</button>
+        </div>
+        <div class="op-card" id="op-cube">
+            <div class="op-icon">³</div>
+            <div class="op-title">Cube</div>
+            <div class="op-desc">n → n³</div>
+            <div class="op-result" id="res-cube"></div>
+            <button class="op-btn" onclick="runOp('cube')">Run</button>
+        </div>
+        <div class="op-card" id="op-double">
+            <div class="op-icon">×2</div>
+            <div class="op-title">Double</div>
+            <div class="op-desc">n → n × 2</div>
+            <div class="op-result" id="res-double"></div>
+            <button class="op-btn" onclick="runOp('double')">Run</button>
+        </div>
+        <div class="op-card" id="op-sqrt">
+            <div class="op-icon">√</div>
+            <div class="op-title">Square Root</div>
+            <div class="op-desc">n → √n</div>
+            <div class="op-result" id="res-sqrt"></div>
+            <button class="op-btn" onclick="runOp('sqrt')">Run</button>
+        </div>
+        <div class="op-card" id="op-factorial">
+            <div class="op-icon">n!</div>
+            <div class="op-title">Factorial</div>
+            <div class="op-desc">n → n!</div>
+            <div class="op-result" id="res-factorial"></div>
+            <button class="op-btn" onclick="runOp('factorial')">Run</button>
+        </div>
+        <div class="op-card" id="op-isPrime">
+            <div class="op-icon">P?</div>
+            <div class="op-title">Is Prime</div>
+            <div class="op-desc">n → prime check</div>
+            <div class="op-result" id="res-isPrime"></div>
+            <button class="op-btn" onclick="runOp('isPrime')">Run</button>
+        </div>
+    </div>
+
+    <!-- Run All -->
+    <button class="btn-all" onclick="runAll()">▶ Run All Operations</button>
+
+    <!-- Code Explanation -->
+    <div class="card code-card">
+        <h2>🧠 How Callbacks Work</h2>
+        <pre class="code-pre">
+// Reusable processor function (higher-order)
+function processArray(numbers, callback) {
+    return numbers.map(callback);
+}
+
+// Callback functions (math operations)
+const square    = n => n * n;
+const cube      = n => n ** 3;
+const double    = n => n * 2;
+
+// Usage
+const nums = [2, 3, 4, 5];
+console.log(processArray(nums, square));
+// → [4, 9, 16, 25]
+        </pre>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

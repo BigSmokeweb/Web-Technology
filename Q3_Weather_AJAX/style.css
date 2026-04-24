@@ -1,0 +1,55 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background: #07091a; color: #e2e8f0; min-height: 100vh; overflow-x: hidden; }
+
+.app { max-width: 600px; margin: 0 auto; padding: 40px 20px 60px; position: relative; z-index: 1; }
+
+.bg-orbs { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.orb { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.25; animation: float 8s ease-in-out infinite; }
+.orb1 { width: 400px; height: 400px; background: radial-gradient(circle, #3b82f6, transparent); top: -100px; left: -100px; }
+.orb2 { width: 350px; height: 350px; background: radial-gradient(circle, #8b5cf6, transparent); bottom: -80px; right: -80px; animation-delay: 4s; }
+@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(20px); } }
+
+.header { text-align: center; margin-bottom: 36px; }
+.header h1 { font-size: 2.2rem; font-weight: 800; background: linear-gradient(90deg, #60a5fa, #a78bfa); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.header p { color: #64748b; font-size: 0.9rem; margin-top: 4px; }
+
+.search-box { display: flex; gap: 0; border-radius: 14px; overflow: hidden; border: 1px solid rgba(99,102,241,0.3); background: #0f1629; box-shadow: 0 4px 24px rgba(99,102,241,0.1); }
+.search-box input { flex: 1; background: transparent; border: none; padding: 16px 20px; color: #e2e8f0; font-size: 1rem; font-family: 'Inter', sans-serif; outline: none; }
+.search-box input::placeholder { color: #475569; }
+.search-box button { background: linear-gradient(135deg, #6366f1, #8b5cf6); border: none; padding: 0 28px; color: white; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: opacity 0.2s; font-family: 'Inter', sans-serif; }
+.search-box button:hover { opacity: 0.85; }
+
+.suggestions { background: #0f1629; border: 1px solid rgba(99,102,241,0.2); border-top: none; border-radius: 0 0 10px 10px; overflow: hidden; }
+.sug-item { padding: 10px 20px; cursor: pointer; font-size: 0.9rem; color: #94a3b8; transition: background 0.15s; }
+.sug-item:hover { background: rgba(99,102,241,0.1); color: #e2e8f0; }
+
+.loader { display: flex; align-items: center; justify-content: center; gap: 12px; padding: 40px; color: #64748b; }
+.spinner { width: 24px; height: 24px; border: 3px solid rgba(99,102,241,0.2); border-top-color: #6366f1; border-radius: 50%; animation: spin 0.8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.error-box { background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.25); color: #f87171; padding: 16px 20px; border-radius: 12px; margin-top: 20px; font-size: 0.9rem; text-align: center; }
+
+.weather-card { background: linear-gradient(135deg, #0f1629 0%, #111827 100%); border: 1px solid rgba(99,102,241,0.2); border-radius: 20px; padding: 28px; margin-top: 24px; animation: slideUp 0.4s ease; }
+@keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+.wc-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 22px; }
+.city-name { font-size: 1.6rem; font-weight: 700; color: #f1f5f9; }
+.wc-date { font-size: 0.82rem; color: #64748b; margin-top: 4px; }
+.condition { margin-top: 10px; font-size: 0.95rem; color: #94a3b8; text-transform: capitalize; }
+.wc-right { text-align: right; }
+.weather-icon { font-size: 4rem; line-height: 1; }
+.temperature { font-size: 2.5rem; font-weight: 800; color: #60a5fa; margin-top: 4px; }
+
+.divider { height: 1px; background: rgba(255,255,255,0.07); margin-bottom: 22px; }
+.wc-details { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.detail-item { background: rgba(99,102,241,0.06); border: 1px solid rgba(99,102,241,0.1); border-radius: 10px; padding: 14px; }
+.d-label { display: block; font-size: 0.75rem; color: #64748b; margin-bottom: 6px; }
+.d-val { font-size: 1rem; font-weight: 600; color: #c7d2fe; }
+
+.popular { margin-top: 30px; text-align: center; }
+.popular p { color: #475569; font-size: 0.85rem; margin-bottom: 12px; }
+.city-chips { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+.chip { background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.2); color: #818cf8; padding: 7px 16px; border-radius: 20px; font-size: 0.82rem; cursor: pointer; transition: all 0.2s; font-family: 'Inter', sans-serif; }
+.chip:hover { background: rgba(99,102,241,0.2); color: #c7d2fe; transform: translateY(-1px); }
+
+.hidden { display: none !important; }

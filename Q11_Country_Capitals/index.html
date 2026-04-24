@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CapitalQuiz | Country Capitals</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="glow-bg"></div>
+<div class="app">
+    <header>
+        <div class="hicon">🌏</div>
+        <h1>Country Capitals</h1>
+        <p>Select a country from the dropdown to reveal its capital city</p>
+    </header>
+
+    <div class="select-card">
+        <label for="countryDrop">Choose a Country</label>
+        <div class="drop-wrap">
+            <select id="countryDrop" onchange="showCapital()">
+                <option value="">-- Select a Country --</option>
+                <option value="IN">🇮🇳 India</option>
+                <option value="JP">🇯🇵 Japan</option>
+                <option value="FR">🇫🇷 France</option>
+                <option value="BR">🇧🇷 Brazil</option>
+                <option value="AU">🇦🇺 Australia</option>
+            </select>
+            <span class="drop-arrow">▾</span>
+        </div>
+    </div>
+
+    <div id="capitalCard" class="capital-card hidden">
+        <div class="flag-display" id="flagDisplay"></div>
+        <div class="capital-info">
+            <div class="country-label" id="countryLabel"></div>
+            <div class="capital-text">Capital City</div>
+            <div class="capital-name" id="capitalName"></div>
+            <div class="extra-info" id="extraInfo"></div>
+        </div>
+    </div>
+
+    <div id="emptyState" class="empty-state">
+        <div class="es-icon">🗺️</div>
+        <p>Select a country above to see its capital</p>
+    </div>
+
+    <!-- All 5 Countries Grid -->
+    <div class="all-countries">
+        <h2>All Countries in This Set</h2>
+        <div class="country-grid">
+            <div class="cg-card" onclick="selectCountry('IN')">
+                <div class="cg-flag">🇮🇳</div>
+                <div class="cg-name">India</div>
+                <div class="cg-cap">New Delhi</div>
+            </div>
+            <div class="cg-card" onclick="selectCountry('JP')">
+                <div class="cg-flag">🇯🇵</div>
+                <div class="cg-name">Japan</div>
+                <div class="cg-cap">Tokyo</div>
+            </div>
+            <div class="cg-card" onclick="selectCountry('FR')">
+                <div class="cg-flag">🇫🇷</div>
+                <div class="cg-name">France</div>
+                <div class="cg-cap">Paris</div>
+            </div>
+            <div class="cg-card" onclick="selectCountry('BR')">
+                <div class="cg-flag">🇧🇷</div>
+                <div class="cg-name">Brazil</div>
+                <div class="cg-cap">Brasília</div>
+            </div>
+            <div class="cg-card" onclick="selectCountry('AU')">
+                <div class="cg-flag">🇦🇺</div>
+                <div class="cg-name">Australia</div>
+                <div class="cg-cap">Canberra</div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

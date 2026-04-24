@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeoLearn | Interactive Geography App</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="globe-bg">
+    <div class="orb o1"></div>
+    <div class="orb o2"></div>
+    <div class="orb o3"></div>
+</div>
+
+<div class="app">
+    <header>
+        <div class="logo">🌍</div>
+        <h1>GeoLearn</h1>
+        <p>Interactive Geography — Countries, Capitals & Flags</p>
+    </header>
+
+    <!-- Search & Dropdown -->
+    <div class="select-box">
+        <input type="text" id="searchCountry" placeholder="🔍 Search for a country..." oninput="filterCountries()" />
+        <select id="countrySelect" size="6" onchange="displayCountry(this.value)">
+        </select>
+    </div>
+
+    <!-- Country Info Card -->
+    <div id="countryCard" class="country-card hidden">
+        <div class="flag-box">
+            <img id="flagImg" src="" alt="Country Flag" />
+            <div class="flag-shine"></div>
+        </div>
+        <div class="country-info">
+            <h2 id="countryName"></h2>
+            <div class="info-grid">
+                <div class="info-item"><span class="i-label">🏛 Capital</span><span class="i-val" id="capital"></span></div>
+                <div class="info-item"><span class="i-label">🌐 Region</span><span class="i-val" id="region"></span></div>
+                <div class="info-item"><span class="i-label">👥 Population</span><span class="i-val" id="population"></span></div>
+                <div class="info-item"><span class="i-label">🗣 Language</span><span class="i-val" id="language"></span></div>
+                <div class="info-item"><span class="i-label">💱 Currency</span><span class="i-val" id="currency"></span></div>
+                <div class="info-item"><span class="i-label">📍 Subregion</span><span class="i-val" id="subregion"></span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Placeholder -->
+    <div id="placeholder" class="placeholder">
+        <div class="ph-icon">🗺️</div>
+        <p>Select or search for a country to explore</p>
+    </div>
+
+    <!-- Quiz Section -->
+    <div class="quiz-section">
+        <h2>🎯 Capital City Quiz</h2>
+        <p>Test your geography knowledge!</p>
+        <div id="quizBox" class="quiz-box">
+            <div class="quiz-question" id="quizQ"></div>
+            <div class="quiz-options" id="quizOpts"></div>
+            <div class="quiz-result hidden" id="quizResult"></div>
+            <div class="quiz-score">Score: <span id="quizScore">0</span> / <span id="quizTotal">0</span></div>
+            <button class="btn-quiz" onclick="nextQuestion()">Next Question ➜</button>
+        </div>
+    </div>
+
+    <!-- Region Filter -->
+    <div class="region-section">
+        <h2>🌎 Browse by Region</h2>
+        <div class="region-chips">
+            <button class="rchip active" onclick="filterRegion('all', this)">All</button>
+            <button class="rchip" onclick="filterRegion('Asia', this)">Asia</button>
+            <button class="rchip" onclick="filterRegion('Europe', this)">Europe</button>
+            <button class="rchip" onclick="filterRegion('Africa', this)">Africa</button>
+            <button class="rchip" onclick="filterRegion('Americas', this)">Americas</button>
+            <button class="rchip" onclick="filterRegion('Oceania', this)">Oceania</button>
+        </div>
+        <div id="regionGrid" class="region-grid"></div>
+    </div>
+</div>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TimeMath | Date & Math Objects</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+    <header>
+        <div class="logo"><span>⏱️</span><h1>TimeMath</h1></div>
+        <p>JavaScript Date Object + Math Object — live calculations</p>
+    </header>
+
+    <!-- Live Clock -->
+    <div class="clock-card card">
+        <div class="clock-label">🕐 Live Date & Time</div>
+        <div class="clock-time" id="clockTime">--:--:--</div>
+        <div class="clock-date" id="clockDate">Loading...</div>
+        <div class="clock-meta">
+            <div class="meta-item"><span class="ml">Day of Year</span><span class="mv" id="dayOfYear">—</span></div>
+            <div class="meta-item"><span class="ml">Week Number</span><span class="mv" id="weekNum">—</span></div>
+            <div class="meta-item"><span class="ml">Unix Timestamp</span><span class="mv" id="timestamp">—</span></div>
+            <div class="meta-item"><span class="ml">Timezone</span><span class="mv" id="timezone">—</span></div>
+        </div>
+    </div>
+
+    <!-- Date Breakdown -->
+    <div class="card date-breakdown">
+        <h2>📅 Date Components</h2>
+        <div class="parts-grid" id="partsGrid"></div>
+    </div>
+
+    <!-- Math Object Operations -->
+    <div class="card math-card">
+        <h2>🔢 Math Object Operations</h2>
+        <div class="math-input-row">
+            <input type="number" id="mathInput" placeholder="Enter a number..." value="25" />
+            <button class="btn btn-primary" onclick="runMath()">Calculate All</button>
+        </div>
+        <div class="math-results" id="mathResults"></div>
+    </div>
+
+    <!-- Random Number Generator -->
+    <div class="card rng-card">
+        <h2>🎲 Random Number Generator</h2>
+        <div class="rng-controls">
+            <div class="rng-field"><label>Min</label><input type="number" id="rngMin" value="1" /></div>
+            <div class="rng-field"><label>Max</label><input type="number" id="rngMax" value="100" /></div>
+            <button class="btn btn-accent" onclick="generateRandom()">Generate!</button>
+        </div>
+        <div id="rngResult" class="rng-result"></div>
+        <div id="rngHistory" class="rng-history"></div>
+    </div>
+
+    <!-- Countdown Timer -->
+    <div class="card timer-card">
+        <h2>⏳ Days Until New Year</h2>
+        <div id="countdown" class="countdown"></div>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

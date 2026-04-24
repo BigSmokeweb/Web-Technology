@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherNow | Real-Time Weather with AJAX</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+    <div class="bg-orbs">
+        <div class="orb orb1"></div>
+        <div class="orb orb2"></div>
+    </div>
+
+    <header class="header">
+        <h1>🌤 WeatherNow</h1>
+        <p>Real-time weather using AJAX — no page refresh</p>
+    </header>
+
+    <div class="search-box">
+        <input type="text" id="cityInput" placeholder="Enter city name..." autocomplete="off" />
+        <button id="searchBtn" onclick="fetchWeather()">Search</button>
+    </div>
+    <div class="suggestions" id="suggestions"></div>
+
+    <!-- Loader -->
+    <div id="loader" class="loader hidden">
+        <div class="spinner"></div>
+        <span>Fetching weather data...</span>
+    </div>
+
+    <!-- Error -->
+    <div id="errorBox" class="error-box hidden"></div>
+
+    <!-- Weather Card -->
+    <div id="weatherCard" class="weather-card hidden">
+        <div class="wc-top">
+            <div class="wc-left">
+                <div class="city-name" id="wcCity"></div>
+                <div class="wc-date" id="wcDate"></div>
+                <div class="condition" id="wcCondition"></div>
+            </div>
+            <div class="wc-right">
+                <div class="weather-icon" id="wcIcon"></div>
+                <div class="temperature" id="wcTemp"></div>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <div class="wc-details">
+            <div class="detail-item">
+                <span class="d-label">💧 Humidity</span>
+                <span class="d-val" id="wcHumidity"></span>
+            </div>
+            <div class="detail-item">
+                <span class="d-label">🌬 Wind Speed</span>
+                <span class="d-val" id="wcWind"></span>
+            </div>
+            <div class="detail-item">
+                <span class="d-label">👁 Visibility</span>
+                <span class="d-val" id="wcVisibility"></span>
+            </div>
+            <div class="detail-item">
+                <span class="d-label">🌡 Feels Like</span>
+                <span class="d-val" id="wcFeelsLike"></span>
+            </div>
+            <div class="detail-item">
+                <span class="d-label">📈 Pressure</span>
+                <span class="d-val" id="wcPressure"></span>
+            </div>
+            <div class="detail-item">
+                <span class="d-label">☁ Cloud Cover</span>
+                <span class="d-val" id="wcCloud"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popular Cities -->
+    <div class="popular">
+        <p>Popular cities:</p>
+        <div class="city-chips">
+            <button class="chip" onclick="quickSearch('Mumbai')">Mumbai</button>
+            <button class="chip" onclick="quickSearch('Delhi')">Delhi</button>
+            <button class="chip" onclick="quickSearch('London')">London</button>
+            <button class="chip" onclick="quickSearch('New York')">New York</button>
+            <button class="chip" onclick="quickSearch('Tokyo')">Tokyo</button>
+            <button class="chip" onclick="quickSearch('Paris')">Paris</button>
+        </div>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

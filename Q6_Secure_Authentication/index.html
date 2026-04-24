@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureAuth | User Authentication System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="bg-mesh"></div>
+
+<div class="auth-wrapper">
+    <!-- Register Panel -->
+    <div class="auth-card" id="registerCard">
+        <div class="auth-logo">🔐</div>
+        <h1>Create Account</h1>
+        <p class="auth-sub">Secure registration with validated inputs</p>
+
+        <form id="registerForm" onsubmit="handleRegister(event)" novalidate>
+            <div class="fg">
+                <label>Full Name</label>
+                <div class="input-wrap">
+                    <span class="inp-icon">👤</span>
+                    <input type="text" id="regName" placeholder="Your full name" oninput="validateField('regName')" />
+                </div>
+                <span class="field-err" id="regNameErr"></span>
+            </div>
+            <div class="fg">
+                <label>Email Address</label>
+                <div class="input-wrap">
+                    <span class="inp-icon">📧</span>
+                    <input type="text" id="regEmail" placeholder="you@example.com" oninput="validateField('regEmail')" />
+                </div>
+                <span class="field-err" id="regEmailErr"></span>
+            </div>
+            <div class="fg">
+                <label>Phone Number</label>
+                <div class="input-wrap">
+                    <span class="inp-icon">📱</span>
+                    <input type="text" id="regPhone" placeholder="10-digit mobile number" oninput="validateField('regPhone')" />
+                </div>
+                <span class="field-err" id="regPhoneErr"></span>
+            </div>
+            <div class="fg">
+                <label>Password</label>
+                <div class="input-wrap">
+                    <span class="inp-icon">🔑</span>
+                    <input type="password" id="regPass" placeholder="Min 8 chars, 1 uppercase, 1 number" oninput="validateField('regPass'); updateStrength()" />
+                    <button type="button" class="eye-btn" onclick="togglePwd('regPass',this)">👁</button>
+                </div>
+                <div class="strength-bar"><div id="strengthBar" class="strength-fill"></div></div>
+                <span class="strength-label" id="strengthLabel"></span>
+                <span class="field-err" id="regPassErr"></span>
+            </div>
+            <div class="fg">
+                <label>Confirm Password</label>
+                <div class="input-wrap">
+                    <span class="inp-icon">✅</span>
+                    <input type="password" id="regConf" placeholder="Re-enter your password" oninput="validateField('regConf')" />
+                </div>
+                <span class="field-err" id="regConfErr"></span>
+            </div>
+
+            <div class="checkbox-row">
+                <input type="checkbox" id="agreeTerms" />
+                <label for="agreeTerms">I agree to the <a href="#">Terms of Service</a></label>
+            </div>
+
+            <div id="regMsg" class="auth-msg hidden"></div>
+            <button type="submit" class="btn-auth" id="regBtn">
+                <span>Create Account</span>
+                <div class="btn-loader hidden"></div>
+            </button>
+        </form>
+        <p class="auth-switch">Already have an account? <a href="#" onclick="switchPanel('login')">Sign In</a></p>
+    </div>
+
+    <!-- Login Panel -->
+    <div class="auth-card hidden" id="loginCard">
+        <div class="auth-logo">👋</div>
+        <h1>Welcome Back</h1>
+        <p class="auth-sub">Login using AJAX — no page refresh</p>
+
+        <form id="loginForm" onsubmit="handleLogin(event)" novalidate>
+            <div class="fg">
+                <label>Email Address</label>
+                <div class="input-wrap">
+                    <span class="inp-icon">📧</span>
+                    <input type="text" id="loginEmail" placeholder="you@example.com" oninput="validateLoginField('loginEmail')" />
+                </div>
+                <span class="field-err" id="loginEmailErr"></span>
+            </div>
+            <div class="fg">
+                <label>Password</label>
+                <div class="input-wrap">
+                    <span class="inp-icon">🔑</span>
+                    <input type="password" id="loginPass" placeholder="Your password" />
+                    <button type="button" class="eye-btn" onclick="togglePwd('loginPass',this)">👁</button>
+                </div>
+                <span class="field-err" id="loginPassErr"></span>
+            </div>
+
+            <div class="forgot-row">
+                <a href="#" onclick="showForgot()">Forgot password?</a>
+            </div>
+
+            <div id="loginMsg" class="auth-msg hidden"></div>
+            <button type="submit" class="btn-auth" id="loginBtn">
+                <span>Sign In</span>
+                <div class="btn-loader hidden"></div>
+            </button>
+        </form>
+        <p class="auth-switch">Don't have an account? <a href="#" onclick="switchPanel('register')">Register</a></p>
+    </div>
+
+    <!-- Dashboard (shown after login) -->
+    <div class="auth-card hidden" id="dashCard">
+        <div class="auth-logo">🎉</div>
+        <h1>Welcome, <span id="dashName">User</span>!</h1>
+        <p class="auth-sub">You're logged in securely</p>
+        <div class="dash-info">
+            <div class="di-row"><span>📧 Email</span><strong id="dashEmail"></strong></div>
+            <div class="di-row"><span>📱 Phone</span><strong id="dashPhone"></strong></div>
+            <div class="di-row"><span>🕒 Session</span><strong id="dashTime"></strong></div>
+        </div>
+        <button class="btn-auth btn-logout" onclick="logout()">🚪 Sign Out</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

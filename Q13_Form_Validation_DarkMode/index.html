@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartForm | Validation + Dark/Light Mode</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- Navbar with theme toggle -->
+<nav class="navbar">
+    <div class="brand">⚡ SmartForm</div>
+    <div class="nav-right">
+        <span class="theme-label" id="themeLabel">🌙 Dark</span>
+        <label class="switch">
+            <input type="checkbox" id="themeCheck" onchange="toggleTheme()" />
+            <span class="slider"></span>
+        </label>
+    </div>
+</nav>
+
+<main class="main">
+    <div class="hero-text">
+        <h1>Form Validation <span class="hl">+ Theme Toggle</span></h1>
+        <p>Both features work independently via JavaScript event handling</p>
+    </div>
+
+    <div class="layout">
+        <!-- Form -->
+        <section class="card form-section">
+            <h2>📝 Smart Registration</h2>
+            <form id="smartForm" onsubmit="submitForm(event)" novalidate>
+
+                <div class="fg">
+                    <label>Full Name</label>
+                    <input type="text" id="sName" placeholder="Your full name"
+                           oninput="validate('sName')" />
+                    <span class="ferr" id="e-sName"></span>
+                </div>
+
+                <div class="fg">
+                    <label>Email</label>
+                    <input type="text" id="sEmail" placeholder="you@email.com"
+                           oninput="validate('sEmail')" />
+                    <span class="ferr" id="e-sEmail"></span>
+                </div>
+
+                <div class="fg">
+                    <label>Password</label>
+                    <div class="pass-wrap">
+                        <input type="password" id="sPass" placeholder="Min 8 chars"
+                               oninput="validate('sPass')" />
+                        <button type="button" onclick="togglePass('sPass',this)">👁</button>
+                    </div>
+                    <span class="ferr" id="e-sPass"></span>
+                </div>
+
+                <div class="fg">
+                    <label>Phone</label>
+                    <input type="text" id="sPhone" placeholder="10-digit number"
+                           oninput="validate('sPhone')" />
+                    <span class="ferr" id="e-sPhone"></span>
+                </div>
+
+                <div id="sfMsg" class="sf-msg hidden"></div>
+                <button type="submit" class="submit-btn">Register Now →</button>
+            </form>
+        </section>
+
+        <!-- Info Panel -->
+        <section class="info-panel">
+            <div class="card theme-card">
+                <h3>🎨 Current Theme</h3>
+                <div class="theme-display" id="themeDisplay">
+                    <div class="td-icon" id="tdIcon">🌙</div>
+                    <div class="td-name" id="tdName">Dark Mode</div>
+                    <p class="td-desc">CSS variables update dynamically on toggle event</p>
+                </div>
+            </div>
+            <div class="card rules-card">
+                <h3>✅ Validation Rules</h3>
+                <ul class="rules-list">
+                    <li id="rl-name">⬜ Name: letters only, 3+ chars</li>
+                    <li id="rl-email">⬜ Email: valid format required</li>
+                    <li id="rl-pass">⬜ Password: 8+ chars, 1 uppercase, 1 digit</li>
+                    <li id="rl-phone">⬜ Phone: 10-digit Indian number</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</main>
+<script src="script.js"></script>
+</body>
+</html>

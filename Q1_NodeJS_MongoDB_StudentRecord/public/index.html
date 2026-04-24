@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Record System | Node.js + MongoDB</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-wrapper">
+        <header class="header">
+            <div class="header-inner">
+                <div class="logo">
+                    <span class="logo-icon">🎓</span>
+                    <h1>StudentDB</h1>
+                </div>
+                <p class="subtitle">Node.js + MongoDB Student Record System</p>
+            </div>
+        </header>
+
+        <main class="main">
+            <!-- Stats Bar -->
+            <div class="stats-bar">
+                <div class="stat-card">
+                    <span class="stat-num" id="totalCount">0</span>
+                    <span class="stat-label">Total Students</span>
+                </div>
+            </div>
+
+            <!-- Search & Filter -->
+            <section class="card search-section">
+                <h2>🔍 Search Students</h2>
+                <div class="search-row">
+                    <input type="text" id="searchName" placeholder="Search by name..." />
+                    <input type="text" id="searchCourse" placeholder="Filter by course..." />
+                    <input type="number" id="searchYear" placeholder="Year (1-4)" min="1" max="4" />
+                    <button class="btn btn-secondary" onclick="searchStudents()">Search</button>
+                    <button class="btn btn-ghost" onclick="loadStudents()">Reset</button>
+                </div>
+            </section>
+
+            <div class="two-col">
+                <!-- Add / Edit Form -->
+                <section class="card form-section">
+                    <h2 id="formTitle">➕ Add New Student</h2>
+                    <form id="studentForm" onsubmit="submitForm(event)">
+                        <input type="hidden" id="editId" />
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" id="name" placeholder="e.g. Milind Sahu" required />
+                        </div>
+                        <div class="form-group">
+                            <label>Roll Number</label>
+                            <input type="text" id="rollNo" placeholder="e.g. CS2024001" required />
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" id="email" placeholder="e.g. milind@college.edu" required />
+                        </div>
+                        <div class="form-group">
+                            <label>Course</label>
+                            <input type="text" id="course" placeholder="e.g. Computer Science" required />
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Year</label>
+                                <input type="number" id="year" placeholder="1-4" min="1" max="4" required />
+                            </div>
+                            <div class="form-group">
+                                <label>Marks (%)</label>
+                                <input type="number" id="marks" placeholder="0-100" min="0" max="100" />
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary" id="submitBtn">Insert Record</button>
+                            <button type="button" class="btn btn-ghost" onclick="resetForm()">Cancel</button>
+                        </div>
+                    </form>
+                    <div id="formMsg" class="message hidden"></div>
+                </section>
+
+                <!-- Student Table -->
+                <section class="card table-section">
+                    <h2>📋 All Students</h2>
+                    <div class="table-wrapper">
+                        <table id="studentTable">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Roll No</th>
+                                    <th>Course</th>
+                                    <th>Year</th>
+                                    <th>Marks</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="studentBody">
+                                <tr><td colspan="6" class="empty-msg">Loading...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

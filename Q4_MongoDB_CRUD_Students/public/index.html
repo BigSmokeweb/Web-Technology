@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Student CRUD | MongoDB</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+    <header>
+        <div class="logo"><span>🏛️</span><h1>CollegeDB</h1></div>
+        <p>Student Records — MongoDB CRUD System</p>
+    </header>
+
+    <div class="layout">
+        <!-- Form Panel -->
+        <aside class="panel">
+            <div class="card">
+                <h2 id="formTitle">➕ New Student</h2>
+                <form id="studentForm" onsubmit="handleSubmit(event)">
+                    <input type="hidden" id="editId">
+                    <div class="fg"><label>Full Name</label><input type="text" id="name" placeholder="Student Name" required></div>
+                    <div class="fg"><label>Roll Number</label><input type="text" id="rollNo" placeholder="e.g. 23CS001" required></div>
+                    <div class="fg"><label>Department</label>
+                        <select id="department" required>
+                            <option value="">-- Select --</option>
+                            <option>Computer Science</option>
+                            <option>Electronics</option>
+                            <option>Mechanical</option>
+                            <option>Civil</option>
+                            <option>Information Technology</option>
+                            <option>Commerce</option>
+                        </select>
+                    </div>
+                    <div class="fg"><label>Semester</label><input type="number" id="semester" placeholder="1–8" min="1" max="8" required></div>
+                    <div class="fg"><label>Phone</label><input type="text" id="phone" placeholder="10-digit number"></div>
+                    <div class="fg"><label>Address</label><input type="text" id="address" placeholder="City, State"></div>
+                    <div id="msg" class="msg hidden"></div>
+                    <div class="btn-row">
+                        <button class="btn primary" type="submit" id="submitBtn">Add Student</button>
+                        <button class="btn ghost" type="button" onclick="resetForm()">Reset</button>
+                    </div>
+                </form>
+            </div>
+            <div class="card stats-panel">
+                <h3>📊 Stats</h3>
+                <div class="stat"><span id="statTotal">0</span><label>Total</label></div>
+                <div class="stat"><span id="statDepts">0</span><label>Depts</label></div>
+            </div>
+        </aside>
+
+        <!-- Table Panel -->
+        <section class="main-panel">
+            <div class="card">
+                <div class="table-header">
+                    <h2>👨‍🎓 All Students</h2>
+                    <input type="text" id="searchInput" placeholder="Search students..." oninput="filterTable()" />
+                </div>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Name</th><th>Roll No</th><th>Dept</th><th>Sem</th><th>Phone</th><th>Actions</th></tr></thead>
+                        <tbody id="tableBody"><tr><td colspan="6" class="empty">Loading...</td></tr></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThemeSwitch | Dark & Light Mode</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="navbar">
+    <div class="nav-brand" id="navBrand">✦ ThemeSwitch</div>
+    <button class="toggle-btn" id="themeToggle" onclick="toggleTheme()">
+        <span class="toggle-icon" id="toggleIcon">🌙</span>
+        <span class="toggle-track"><span class="toggle-thumb"></span></span>
+        <span class="toggle-label" id="toggleLabel">Dark Mode</span>
+    </button>
+</nav>
+
+<main class="main">
+    <div class="hero">
+        <h1 class="hero-title">Dynamic <span class="accent">Theme</span> Switching</h1>
+        <p class="hero-sub">CSS applied dynamically via JavaScript event handling. No page reload needed.</p>
+        <div class="theme-badge" id="themeBadge">🌙 Dark Mode Active</div>
+    </div>
+
+    <!-- Sample UI Elements -->
+    <div class="demo-grid">
+        <div class="demo-card">
+            <div class="demo-icon">📝</div>
+            <h3>Text Content</h3>
+            <p>This text adapts to whichever theme is currently active. Smooth transitions are applied via CSS custom properties.</p>
+        </div>
+        <div class="demo-card">
+            <div class="demo-icon">🎨</div>
+            <h3>Color System</h3>
+            <p>The entire color palette switches using CSS variables. Background, text, borders, and shadows all transition together.</p>
+        </div>
+        <div class="demo-card">
+            <div class="demo-icon">⚡</div>
+            <h3>Event Handling</h3>
+            <p>A single button click event triggers the theme switch by toggling the <code>data-theme</code> attribute on the HTML element.</p>
+        </div>
+    </div>
+
+    <!-- Color Palette Preview -->
+    <div class="palette-section">
+        <h2>Current Theme Palette</h2>
+        <div class="palette-row">
+            <div class="swatch sw-bg"><span>Background</span></div>
+            <div class="swatch sw-card"><span>Card</span></div>
+            <div class="swatch sw-text"><span>Text</span></div>
+            <div class="swatch sw-accent"><span>Accent</span></div>
+            <div class="swatch sw-border"><span>Border</span></div>
+        </div>
+    </div>
+
+    <!-- Code Preview -->
+    <div class="code-block">
+        <div class="code-header"><span>🟡 JS Event Handling</span></div>
+        <pre id="codeDisplay"></pre>
+    </div>
+</main>
+<script src="script.js"></script>
+</body>
+</html>

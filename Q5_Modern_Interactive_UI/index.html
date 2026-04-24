@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InteractUI | Modern Interactive User Interface</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar">
+    <div class="nav-brand">✦ InteractUI</div>
+    <div class="nav-links">
+        <a href="#hero" class="nav-link active">Home</a>
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#components" class="nav-link">Components</a>
+        <a href="#contact" class="nav-link">Contact</a>
+    </div>
+    <button class="nav-cta" onclick="toggleTheme()">🌙 Theme</button>
+    <div class="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero" id="hero">
+    <div class="hero-bg">
+        <div class="particle" style="--x:10%;--y:20%;--d:6s;--s:8px"></div>
+        <div class="particle" style="--x:80%;--y:10%;--d:8s;--s:5px"></div>
+        <div class="particle" style="--x:30%;--y:80%;--d:5s;--s:10px"></div>
+        <div class="particle" style="--x:70%;--y:60%;--d:7s;--s:6px"></div>
+        <div class="particle" style="--x:50%;--y:40%;--d:9s;--s:4px"></div>
+        <div class="particle" style="--x:20%;--y:50%;--d:4s;--s:12px"></div>
+    </div>
+    <div class="hero-content">
+        <div class="hero-badge">🚀 Modern Web UI 2025</div>
+        <h1 class="hero-title">
+            <span class="line">Build Stunning</span>
+            <span class="line gradient-text">Interactive</span>
+            <span class="line">Experiences</span>
+        </h1>
+        <p class="hero-sub">A company's modern interactive UI with glassmorphism, animations, and premium micro-interactions for unmatched user engagement.</p>
+        <div class="hero-btns">
+            <button class="btn-hero primary" onclick="scrollTo('features')">Explore Features</button>
+            <button class="btn-hero outline" onclick="scrollTo('components')">View Components</button>
+        </div>
+        <div class="hero-stats">
+            <div class="hstat"><span class="hstat-num" data-target="98">0</span><span>%</span><p>Satisfaction</p></div>
+            <div class="hstat-div"></div>
+            <div class="hstat"><span class="hstat-num" data-target="240">0</span><span>+</span><p>Components</p></div>
+            <div class="hstat-div"></div>
+            <div class="hstat"><span class="hstat-num" data-target="50">0</span><span>K</span><p>Users</p></div>
+        </div>
+    </div>
+    <div class="hero-visual">
+        <div class="floating-card card1">
+            <div class="fc-icon">💎</div>
+            <div class="fc-text"><strong>Premium Design</strong><span>Glassmorphism UI</span></div>
+        </div>
+        <div class="floating-card card2">
+            <div class="fc-icon">⚡</div>
+            <div class="fc-text"><strong>Fast & Responsive</strong><span>60fps Animations</span></div>
+        </div>
+        <div class="floating-card card3">
+            <div class="fc-icon">🎨</div>
+            <div class="fc-text"><strong>Custom Themes</strong><span>Dark &amp; Light Mode</span></div>
+        </div>
+        <div class="orb-center"></div>
+    </div>
+</section>
+
+<!-- Features -->
+<section class="features" id="features">
+    <div class="section-label">FEATURES</div>
+    <h2 class="section-title">Everything You Need</h2>
+    <p class="section-sub">Crafted for modern web experiences with pixel-perfect precision</p>
+    <div class="feature-grid">
+        <div class="feature-card" data-delay="0">
+            <div class="fc-glow"></div>
+            <div class="f-icon">🎯</div>
+            <h3>Precision Animations</h3>
+            <p>Buttery smooth transitions powered by CSS custom properties and JavaScript IntersectionObserver for scroll-driven effects.</p>
+            <div class="f-tag">CSS3 + JS</div>
+        </div>
+        <div class="feature-card" data-delay="100">
+            <div class="fc-glow"></div>
+            <div class="f-icon">🌊</div>
+            <h3>Fluid Layouts</h3>
+            <p>Responsive grid systems that adapt beautifully to any screen size, from mobile to ultra-wide displays.</p>
+            <div class="f-tag">CSS Grid</div>
+        </div>
+        <div class="feature-card" data-delay="200">
+            <div class="fc-glow"></div>
+            <div class="f-icon">🔮</div>
+            <h3>Glassmorphism</h3>
+            <p>Modern frosted-glass aesthetic with backdrop filters and translucent layers for depth and elegance.</p>
+            <div class="f-tag">Backdrop Filter</div>
+        </div>
+        <div class="feature-card" data-delay="300">
+            <div class="fc-glow"></div>
+            <div class="f-icon">🌙</div>
+            <h3>Dark / Light Mode</h3>
+            <p>One-click theme switching with smooth transitions, respecting user system preferences automatically.</p>
+            <div class="f-tag">CSS Variables</div>
+        </div>
+        <div class="feature-card" data-delay="400">
+            <div class="fc-glow"></div>
+            <div class="f-icon">📱</div>
+            <h3>Mobile First</h3>
+            <p>Designed from the ground up for touch devices with swipe gestures and responsive breakpoints.</p>
+            <div class="f-tag">Responsive</div>
+        </div>
+        <div class="feature-card" data-delay="500">
+            <div class="fc-glow"></div>
+            <div class="f-icon">⚡</div>
+            <h3>Performance</h3>
+            <p>Optimized for Core Web Vitals with lazy loading, efficient DOM updates, and minimal repaints.</p>
+            <div class="f-tag">Optimized</div>
+        </div>
+    </div>
+</section>
+
+<!-- Interactive Components -->
+<section class="components" id="components">
+    <div class="section-label">COMPONENTS</div>
+    <h2 class="section-title">Interactive Elements</h2>
+
+    <!-- Tabs -->
+    <div class="demo-block">
+        <h3 class="demo-title">🗂 Tab System</h3>
+        <div class="tabs">
+            <button class="tab active" data-tab="tab1">Dashboard</button>
+            <button class="tab" data-tab="tab2">Analytics</button>
+            <button class="tab" data-tab="tab3">Settings</button>
+        </div>
+        <div class="tab-content">
+            <div id="tab1" class="tab-panel active">
+                <div class="dash-grid">
+                    <div class="dash-card"><span>📈</span><strong>Revenue</strong><p class="dash-val">₹4.2L</p></div>
+                    <div class="dash-card"><span>👥</span><strong>Users</strong><p class="dash-val">12,480</p></div>
+                    <div class="dash-card"><span>🛒</span><strong>Orders</strong><p class="dash-val">3,241</p></div>
+                    <div class="dash-card"><span>⭐</span><strong>Rating</strong><p class="dash-val">4.9/5</p></div>
+                </div>
+            </div>
+            <div id="tab2" class="tab-panel">
+                <div class="bar-chart">
+                    <div class="bar" style="--h:65%" data-label="Mon"><span>65%</span></div>
+                    <div class="bar" style="--h:82%" data-label="Tue"><span>82%</span></div>
+                    <div class="bar" style="--h:54%" data-label="Wed"><span>54%</span></div>
+                    <div class="bar" style="--h:91%" data-label="Thu"><span>91%</span></div>
+                    <div class="bar" style="--h:73%" data-label="Fri"><span>73%</span></div>
+                    <div class="bar" style="--h:88%" data-label="Sat"><span>88%</span></div>
+                    <div class="bar" style="--h:46%" data-label="Sun"><span>46%</span></div>
+                </div>
+            </div>
+            <div id="tab3" class="tab-panel">
+                <div class="settings-list">
+                    <div class="setting-row"><span>🔔 Notifications</span><label class="toggle"><input type="checkbox" checked><span class="slider"></span></label></div>
+                    <div class="setting-row"><span>🔒 Two-Factor Auth</span><label class="toggle"><input type="checkbox"><span class="slider"></span></label></div>
+                    <div class="setting-row"><span>📧 Email Digest</span><label class="toggle"><input type="checkbox" checked><span class="slider"></span></label></div>
+                    <div class="setting-row"><span>🌐 Public Profile</span><label class="toggle"><input type="checkbox"><span class="slider"></span></label></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Progress Bars -->
+    <div class="demo-block">
+        <h3 class="demo-title">📊 Animated Progress</h3>
+        <div class="progress-list">
+            <div class="prog-item"><span>HTML & CSS</span><span class="prog-pct">95%</span>
+                <div class="prog-bar"><div class="prog-fill" data-w="95" style="--c:#f59e0b"></div></div>
+            </div>
+            <div class="prog-item"><span>JavaScript</span><span class="prog-pct">88%</span>
+                <div class="prog-bar"><div class="prog-fill" data-w="88" style="--c:#6366f1"></div></div>
+            </div>
+            <div class="prog-item"><span>React / Vue</span><span class="prog-pct">76%</span>
+                <div class="prog-bar"><div class="prog-fill" data-w="76" style="--c:#10b981"></div></div>
+            </div>
+            <div class="prog-item"><span>Node.js</span><span class="prog-pct">82%</span>
+                <div class="prog-bar"><div class="prog-fill" data-w="82" style="--c:#ec4899"></div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Accordion -->
+    <div class="demo-block">
+        <h3 class="demo-title">🪗 Accordion FAQ</h3>
+        <div class="accordion">
+            <div class="acc-item">
+                <button class="acc-head" onclick="toggleAcc(this)">What is glassmorphism? <span class="acc-icon">+</span></button>
+                <div class="acc-body">Glassmorphism is a UI design trend that uses frosted glass effects via CSS backdrop-filter and semi-transparent backgrounds to create depth and hierarchy in modern interfaces.</div>
+            </div>
+            <div class="acc-item">
+                <button class="acc-head" onclick="toggleAcc(this)">How does dark mode work? <span class="acc-icon">+</span></button>
+                <div class="acc-body">Dark mode is implemented using CSS custom properties (variables). Toggling a class on the root element switches the entire color palette instantly without any page reload.</div>
+            </div>
+            <div class="acc-item">
+                <button class="acc-head" onclick="toggleAcc(this)">Are animations performance-safe? <span class="acc-icon">+</span></button>
+                <div class="acc-body">Yes! All animations use GPU-accelerated properties like transform and opacity, avoiding layout thrashing. IntersectionObserver is used for scroll-triggered effects to keep the main thread free.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast Demo -->
+    <div class="demo-block">
+        <h3 class="demo-title">🔔 Toast Notifications</h3>
+        <div class="toast-btns">
+            <button class="btn-toast success" onclick="showToast('✅ Action completed successfully!', 'success')">Success</button>
+            <button class="btn-toast error" onclick="showToast('❌ Something went wrong!', 'error')">Error</button>
+            <button class="btn-toast info" onclick="showToast('ℹ️ New update available.', 'info')">Info</button>
+            <button class="btn-toast warn" onclick="showToast('⚠️ Low storage space!', 'warn')">Warning</button>
+        </div>
+        <div id="toastContainer" class="toast-container"></div>
+    </div>
+</section>
+
+<!-- Contact -->
+<section class="contact" id="contact">
+    <div class="section-label">CONTACT</div>
+    <h2 class="section-title">Get In Touch</h2>
+    <form class="contact-form" onsubmit="handleContact(event)">
+        <div class="cf-row">
+            <div class="fg"><label>Name</label><input type="text" placeholder="Your name" required /></div>
+            <div class="fg"><label>Email</label><input type="email" placeholder="your@email.com" required /></div>
+        </div>
+        <div class="fg"><label>Message</label><textarea rows="4" placeholder="How can we help you?"></textarea></div>
+        <button type="submit" class="btn-hero primary">Send Message 🚀</button>
+    </form>
+</section>
+
+<footer class="footer">
+    <p>✦ InteractUI — Built with passion using HTML, CSS &amp; JavaScript</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
